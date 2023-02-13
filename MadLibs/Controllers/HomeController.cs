@@ -5,8 +5,12 @@ namespace MadLibs.Controllers
 {
   public class HomeController : Controller
   {
-    [Route("/")] 
-      public ActionResult MadLibs(string noun1, string noun2, string noun3, string adjective1, string adjective2, string food1, string food2, string verb, string verbing, string body, string color1, string color2) 
+    [Route("/form")]
+    public ActionResult Form() { return View(); 
+    }
+
+    [Route("/madlibsform")] 
+      public ActionResult MadLibEntry(string noun1, string noun2, string noun3, string adjective1, string adjective2, string food1, string food2, string verb, string verbing, string body, string color1, string color2) 
       { 
         EntryForm myEntryForm = new EntryForm();
         myEntryForm.Noun1 = noun1;
@@ -22,9 +26,5 @@ namespace MadLibs.Controllers
         myEntryForm.Color2 = color2;
         return View(myEntryForm);
       }
-
-    [Route("/form")]
-    public ActionResult Form() { return View(); 
-    }
   }
 }
