@@ -3,28 +3,28 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace MadLibs
 {
-    class Program
+  class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+      WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddControllersWithViews();
+      builder.Services.AddControllersWithViews();
 
-            WebApplication app = builder.Build();
+      WebApplication app = builder.Build();
 
-            //app.UseDeveloperExceptionPage();
-            
-            app.UseHttpsRedirection();
+      //app.UseDeveloperExceptionPage();
 
-            app.UseRouting();
+      //app.UseHttpsRedirection();
 
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}"
-            );
+      app.UseRouting();
 
-            app.Run();
-        }
+      app.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}"
+      );
+
+      app.Run();
     }
+  }
 }
